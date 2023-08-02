@@ -34,7 +34,7 @@ func main() {
 	flag.StringVar(&flagToken, "token", "", "[required] value of the token_v2 cookie")
 	flag.StringVar(&flagOutput, "output", "", "[required] directory to sync the data to; note the existing files will be deleted")
 	flag.StringVar(&flagPages, "pages", "", "[required] comma-separated list of page to export the data from")
-	flag.StringVar(&flagFileToken, "token", "", "[required] value of the file_token cookie")
+	flag.StringVar(&flagFileToken, "fileToken", "", "[required] value of the file_token cookie")
 	flag.Parse()
 
 	if flagPages == "" {

@@ -20,6 +20,7 @@ var (
 	flagToken  string
 	flagPages  string
 	flagOutput string
+	flagFileToken string
 )
 
 // allowedExtensions of files present in an existing output directory
@@ -33,6 +34,7 @@ func main() {
 	flag.StringVar(&flagToken, "token", "", "[required] value of the token_v2 cookie")
 	flag.StringVar(&flagOutput, "output", "", "[required] directory to sync the data to; note the existing files will be deleted")
 	flag.StringVar(&flagPages, "pages", "", "[required] comma-separated list of page to export the data from")
+	flag.StringVar(&flagFileToken, "token", "", "[required] value of the file_token cookie")
 	flag.Parse()
 
 	if flagPages == "" {
@@ -47,7 +49,7 @@ func main() {
 		log.Fatalf("Missing required flag -output")
 	}
 
-	if err := export(flagPages, flagOutput, flagToken); err != nil {
+	if err := export(flagPages, flagOutput, flagToken, flagFileToken); err != nil {
 		log.Fatal(err)
 	}
 }

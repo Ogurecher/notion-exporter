@@ -63,6 +63,7 @@ func export(pages, output, token string, fileToken string) error {
 	}
 
 	client := &notionapi.Client{}
+	client.DebugLog = true
 	if token != "" {
 		client.AuthToken = token
 	}

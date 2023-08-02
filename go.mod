@@ -2,4 +2,4 @@ module github.com/Ogurecher/notion-exporter
 
 go 1.16
 
-require github.com/Ogurecher/notionapi
+require github.com/Ogurecher/notionapi v.0.1

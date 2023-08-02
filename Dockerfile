@@ -4,6 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN go get -d -v ./...
+RUN go mod tidy -v
 RUN go build -o notion-exporter -v ./...
 
 FROM alpine:latest

@@ -32,7 +32,7 @@ echo ":: Cloning github.com/${GITHUB_REPOSITORY} ${BRANCH} into ${REPO}"
 git clone --branch "${BRANCH}" "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}" "$REPO"
 
 echo ":: Exporting ${PAGES} into ${OUTPUT}"
-/app/notion-exporter -pages "${PAGES}" -token "${NOTION_TOKEN}" -output "${OUTPUT}"
+/app/notion-exporter -pages "${PAGES}" -token "${NOTION_TOKEN}" -output "${OUTPUT}" -fileToken "${NOTION_FILE_TOKEN}"
 
 find "${OUTPUT}"
 

@@ -13,7 +13,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/kjk/notionapi"
+	"github.com/Ogurecher/notionapi"
 )
 
 var (
@@ -52,7 +52,7 @@ func main() {
 	}
 }
 
-func export(pages, output, token string) error {
+func export(pages, output, token string, fileToken string) error {
 	if _, err := os.Stat(output); !os.IsNotExist(err) {
 		// output dir already exists, let's do some extra verification to ensure we don't nuke something unexpected
 		if err := verifyDir(output); err != nil {
@@ -63,6 +63,9 @@ func export(pages, output, token string) error {
 	client := &notionapi.Client{}
 	if token != "" {
 		client.AuthToken = token
+	}
+	if fileToken != "" {
+		client.FileToken = fileToken
 	}
 
 	// create a temp directory to save and unzip the export
